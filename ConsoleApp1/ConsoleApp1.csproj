@@ -1,0 +1,20 @@
+<Project InitialTargets="DisplayMessages" Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+
+  <Target Name="DisplayMessages">
+    <Message Importance="High" Text="TargetFramework            = $(TargetFramework)" />
+    <Message Importance="High" Text="TargetFrameworkIdentifier  = $(TargetFrameworkIdentifier)" />
+    <Message Importance="High" Text="TargetFrameworkVersion     = $(TargetFrameworkVersion)" />
+    <Message Importance="High" Text="TargetFrameworkProfile     = $(TargetFrameworkProfile)" />
+    <Message Importance="High" Text="TargetPlatformIdentifier   = $(TargetPlatformIdentifier)" />
+    <Message Importance="High" Text="TargetPlatformVersion      = $(TargetPlatformVersion)" />
+    <Message Importance="High" Text="SupportedOSPlatformVersion = $(SupportedOSPlatformVersion)" />
+  </Target>
+
+</Project>

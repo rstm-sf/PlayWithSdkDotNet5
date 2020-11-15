@@ -1,0 +1,44 @@
+name: 'Play'
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  configuration: Release
+  sdk: 5.0.100
+
+jobs:
+  build-w:
+    name: Windows
+    runs-on: windows-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.sdk }}
+
+    - name: Run
+      working-directory: ConsoleApp1
+      run: dotnet run -c ${{ env.configuration }}
+
+  build-u:
+    name: Ubuntu
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.sdk }}
+
+    - name: Build
+      working-directory: ConsoleApp1
+      run: dotnet build -c ${{ env.configuration }}
