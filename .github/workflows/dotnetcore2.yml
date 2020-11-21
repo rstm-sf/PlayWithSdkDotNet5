@@ -1,4 +1,4 @@
-name: 'Play'
+name: 'Play with auto-download .NETFramework'
 
 on:
   push:
@@ -8,27 +8,10 @@ on:
 
 env:
   configuration: Release
-  sdk: 5.0.100
 
 jobs:
   build-w:
-    name: Windows
-    runs-on: windows-latest
-
-    steps:
-
-    - uses: actions/checkout@v2
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: ${{ env.sdk }}
-
-    - name: Run
-      working-directory: ConsoleApp1
-      run: dotnet run -c ${{ env.configuration }}
-
-  build-u:
-    name: Ubuntu
+    name: .NET 5
     runs-on: ubuntu-latest
 
     steps:
@@ -37,8 +20,24 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: ${{ env.sdk }}
+        dotnet-version: 5.0.100
 
-    - name: Build
-      working-directory: ConsoleApp1
+    - name: Run on Ubuntu
+      working-directory: ConsoleApp2
+      run: dotnet run -c ${{ env.configuration }}
+
+  build-u:
+    name: .NET Core 3.1 
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+
+    - name: Build on Ubuntu
+      working-directory: ConsoleApp2
       run: dotnet build -c ${{ env.configuration }}
