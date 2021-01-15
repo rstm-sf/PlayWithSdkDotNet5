@@ -7,6 +7,7 @@ on:
     branches: [ main ]
 
 env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: 1
   configuration: Release
   sdk: 5.0.x
 
