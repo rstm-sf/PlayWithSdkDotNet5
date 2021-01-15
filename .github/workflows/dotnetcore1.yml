@@ -8,7 +8,7 @@ on:
 
 env:
   configuration: Release
-  sdk: 5.0.100
+  sdk: 5.0.x
 
 jobs:
   build-w:
